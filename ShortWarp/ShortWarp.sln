@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReforgedEdenMKII", "ReforgedEdenMKII.csproj", "{B7E3C087-41A4-4227-AFE0-739F847C486A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortWarp", "ShortWarp.csproj", "{B7E3C087-41A4-4227-AFE0-739F847C486A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,8 +11,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7E3C087-41A4-4227-AFE0-739F847C486A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
