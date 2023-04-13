@@ -1,17 +1,15 @@
-# ReforgedEdenMKI
-Empyrion Galactic Survival - Reforged Eden Scenario Enhancements
+# ShortWarp
+Empyrion Galactic Survival - Short Range Warp for CV
 
 __*DISCLAIMER*__ This mod uses API1 and therefore can only run on dedicated servers. If you want to use this mod for a single player game you will need to host your own local dedicated server.
 
 ## Installation
 
-* Navigate to your server's `Content\Mods` folder
-* Create a new folder titled `ReforgedEdenMKI`
-* Copy the files `ReforgedEdenMKI.dll` and `ReforgedEdenMKI_Info.yaml` into this folder
-* Restart your dedicated server
+Get the "ShortWarp.zip" from the relases section and extract into your "Empyrion - Dedicated Server\Content\Mods" (the Files are in a Folder named ShortWarp)
 
 ## Features
 
-### Warp Gate Enhancements
-
-Once you have activated the progenitor warp gate, any player that comes within 50m of the gate will trigger a dialog message allowing them to activate the gate. This starts a 90 second countdown after which all players and entities (with the exception of BAs) within 500m of the warp gate will be teleported to a random location on the other side of the gate. The gate will enter a 5 minute cooldown period after activation (the portal will remain accessible). Choosing not to warp will put the gate on a 2 minute cooldown before it will prompt the player again.
+### The Mod requires 2 things to set it up:
+* A Signal in the control panel signals group called "WARP".
+* A LCD (or Projector) also called "WARP" in view from your pilot seat.
+### Now you can make a short Warp by pointing your ship at a ship/base with the same faction as the pilot (only private works, faction will work soon) that is more than 2000 units away. You should get Output at the LCD. Now actiavate the signal and wait for the countdown (10s) to complete. Now You have to disable the signal again to clear the LCD and reset the warp.
