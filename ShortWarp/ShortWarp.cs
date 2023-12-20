@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 namespace ShortWarp
 {
@@ -81,8 +82,20 @@ namespace ShortWarp
                             List<ILcd> OutLcds = new List<ILcd>();
                             List<contact> Contacts = new List<contact>();
                             List<contact> Friendly_Contacts = new List<contact>();
-                            IEntity PlayerShip = PF.Value.Entities.Where(t => !t.Value.IsProxy && t.Value.Type == EntityType.CV).Where(t => t.Value.Structure.Pilot.Id == P.Key).First().Value;
-                            if (PlayerShip == null) continue;
+#if DEBUG
+                            GameAPI.Log($"PlayerShip1 ");
+#endif
+                            IEntity PlayerShip = null;
+                            PlayerShip = P.Value.CurrentStructure.Entity;
+
+                         //PlayerShip = ships.Where(t=> t.Value.Structure.Pilot.Id == P.Value.Id).First().Value;
+                            if (PlayerShip == null)
+                            {
+#if DEBUG
+                                GameAPI.Log($"PlayerShip == null");
+#endif
+                                continue;
+                            }
                             string LCDtext = "<align=center>Warp</align>\n";
 #if DEBUG
                             GameAPI.Log($"PlayerShip {PlayerShip.Name}");
@@ -102,6 +115,9 @@ namespace ShortWarp
                             {
                                 GameAPI.Log($"catch find lcds {ex.Message}");
                             }
+#if DEBUG
+                            GameAPI.Log($"lcds {OutLcds.Count()}");
+#endif
                             foreach (var E in PF.Value.Entities)
                             {
                                 if (E.Key == PlayerShip.Id) continue;
@@ -111,7 +127,7 @@ namespace ShortWarp
                                 if (E.Value.Faction.Id != P.Value.Faction.Id) continue;
                                 if (!(E.Value.Type == EntityType.CV || E.Value.Type == EntityType.BA || E.Value.Type == EntityType.Proxy)) continue;
 #if DEBUG
-                                GameAPI.Log($"DEBUG {E.Value.Type} {E.Key}");
+                                GameAPI.Log($"DEBUG E {E.Value.Type} {E.Key}");
 #endif
                                 if (angle < langle && dist > 2 * save_dist)
                                 {
@@ -127,10 +143,13 @@ namespace ShortWarp
                                 return x.dist.CompareTo(y.dist);
                             });
 #if DEBUG
-                            GameAPI.Log($"Friendly_Contacts.count{Friendly_Contacts.Count}");
+                            GameAPI.Log($"Friendly_Contacts.count {Friendly_Contacts.Count}");
 #endif
                             bool Warp = PlayerShip.Structure.GetSignalState("WARP");
-                            if (Friendly_Contacts.Count > 1)
+#if DEBUG
+                            GameAPI.Log($"signal WARP {Warp}");
+#endif
+                            if (Friendly_Contacts.Count >= 1)
                             {
                                 var first = Friendly_Contacts[0];
                                 LCDtext += $"Warp Target:\n{first.name} {first.dist}\n";
@@ -211,7 +230,7 @@ namespace ShortWarp
             }
             catch (Exception ex)
             {
-                GameAPI.Log($"Application_Update {ex.Message}");
+                GameAPI.Log($"Application_Update CATCH {ex.Message}");
             }
         }
         // Convert an object to a byte array

@@ -35,14 +35,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mif">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2022\ReforgedEdenMKI-main\ReforgedEdenMKI\Mif.dll</HintPath>
+      <HintPath>.\Mif.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ModApi">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2022\ReforgedEdenMKI-main\ReforgedEdenMKI\ModApi.dll</HintPath>
+      <HintPath>.\ModApi.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2022\ReforgedEdenMKI-main\ReforgedEdenMKI\protobuf-net.dll</HintPath>
+      <HintPath>.\protobuf-net.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -54,16 +54,18 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\Documents\EmpyrionScripting.Examples\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>.\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ShortWarp.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="ShortWarp_Info.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
